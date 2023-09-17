@@ -29,11 +29,11 @@ Docker version 24.0.6, build ed223bc
 我们在下发文件中提供了如下 `Dockerfile` 用于构建镜像：
 
 ```dockerfile
-FROM docker.mirrors.sjtug.sjtu.edu.cn/library/ubuntu:22.04
+FROM ubuntu:22.04
 LABEL maintainer="songyuchen@stu.pku.edu.cn"
 COPY sources.list.x86 /etc/apt/sources.list
+RUN apt update && apt install cmake gcc g++ ninja-build vim openssh-server ca-certificates curl git --yes --force-yes && echo 'root:123456' | chpasswd
 COPY sshd_config.txt /etc/ssh/sshd_config
-RUN apt update && apt install cmake gcc g++ ninja-build vim openssh-server ca-certificates curl git -y && echo 'root:123456' | chpasswd
 ```
 
 在终端中执行命令：

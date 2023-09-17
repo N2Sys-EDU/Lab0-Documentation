@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
 
 某些情况下（比如为了让文件夹更美观），我们可能会将源文件和头文件放到不同的文件夹中比如
 
-```
+```plain
 - include
 --- hello.hpp
 - src
@@ -83,7 +83,7 @@ target_include_directories(hello PUBLIC include)
 
 文件目录为:
 
-```
+```plain
 - main.cpp
 - mylib.cpp
 - CMakeLists.txt
@@ -150,7 +150,7 @@ Cache的意义在于，我们将这个变量的值保存下来
 
 如果我们的目录如下
 
-```
+```plain
 - lib
 -- mlib
 --- mylib.cpp
