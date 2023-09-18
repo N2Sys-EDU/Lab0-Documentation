@@ -12,6 +12,10 @@
 
 ### Docker 安装
 
+> 提示：  
+> Docker 对于本课程的实验 Lab 并不是必须的，如果你对 Linux 系统编程非常熟悉，你也可以选择自己喜欢的开发环境进行开发（比如 VMware, wsl 等虚拟机, 或者其它 Linux 发行版），但我们不负责对其中遇到的问题进行解答。  
+> 如果你决定使用你自己的开发环境，我们建议参考下述 Dockerfile 中安装的依赖来配置 Lab 需要的编译工具链。
+
 第一步是搭建一个适合本课程 Lab 的实验环境。为避免出现不可控的问题，本学期的所有 Lab 将建议使用 docker 环境开发。
 
 你首先需要在自己的电脑上安装 docker 环境，关于这部分内容我们不会作详细的描述，请参考 [Get Docker](https://docs.docker.com/get-docker/) 官方教程。
@@ -107,6 +111,8 @@ Docker Hub 中应该能看到如图的类似结果：
 
 ### 配置开发环境
 
+#### 方案一：使用 ssh
+
 此时你已经获得了一个可以编写、运行 Lab 代码的实验环境，你可以使用你喜欢的编辑器来进行代码开发，不过这里我们选择使用 vscode 作为例子。我们将使用在上述过程中配置好的 ssh 登陆方式，使用 vscode 远程窗口来进行演示。
 
 在配置镜像阶段，我们已经通过配置 sshd_config 文件打开了 ssh 登录配置；在启动容器阶段，我们也将主机的 20729 端口与容器的 22 端口相连。此时我们需要在命令行中执行如下命令重启容器的 ssh 服务：
@@ -182,6 +188,27 @@ Host netlab
 > 警告：  
 > 上述说明文档中从便于操作的角度进行了一些不太安全的配置，请勿用于生产环境。  
 > 从安全的角度出发，我们建议你修改 `Dockerfile` 中最后一行 `echo 'root:123456' | chpasswd` 中关于设置 root 密码的部分，以及在 `docker-compose.yml` 文件中关于端口映射的部分。
+
+#### 方案二：使用 dev container 插件
+
+一些同学反应，在成功运行 docker 容器后，使用 vscode 连接进入容器出现了一些问题，这里给出另一个可选的方案。  
+在 vscode 插件目录中查找插件 `Dev Containers` 如下并点击安装：
+
+![dev container](dev_container.png)
+
+新建一个 vscode 窗口，然后按下 `Ctrl + P` ，在上方弹出的窗口中输入 `> remote-containers`，找到其中的 `Open Folder in Container` 并点击
+
+![dev container](dev_container_vscode.png)
+
+此时会弹出一个选择文件夹的窗口，选择你下载的 `lab0-addon` 压缩包解压后的文件夹。插件会自动识别到文件夹目录下的 `Dockerfile` 和 `docker-compose.yml` 两个文件，并弹出如下所示的选项：
+
+![dev container](dev_container_build.png)
+
+如果在上面的流程中，你已经成功运行了 `Dockerfile` 的内容，请选择 `From 'docker-compose.yml'`；否则请选择 `From 'Dockerfile'`。
+
+在等待一段时间后，vscode 应该已经自动启动了容器并进入容器环境。你可以查看 vscode 页面左下角是否出现 `Dev Container: ...` 类似标记。
+
+![dev contianer](dev_container_left.png)
 
 ## 编译与执行
 
