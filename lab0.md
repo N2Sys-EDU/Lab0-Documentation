@@ -43,7 +43,7 @@ COPY sshd_config.txt /etc/ssh/sshd_config
 在终端中执行命令：
 
 ```bash
-docker buildx build -t netlab2023:v1 -f .\Dockerfile . --platform linux/amd64
+docker buildx build -t netlab2023:v1 -f Dockerfile . --platform linux/amd64
 ```
 
 > 解释：  
@@ -235,7 +235,7 @@ Host netlab
 
 ### 执行
 
-这里执行之后我们注意到build目录下生成了 hellonetwork 的可执行程序,不妨执行一下`./hellonetwork`执行即可
+如果你完成了这个 lab 要做的内容（参见下一节），这里执行之后我们注意到build目录下生成了 hellonetwork 的可执行程序,不妨执行一下`./hellonetwork`执行即可
 
 可执行程序`hellonetwork`接收一个参数,该参数为`0`或`1`,不同的参数会输出不同的结果
 
