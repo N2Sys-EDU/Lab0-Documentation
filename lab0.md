@@ -40,7 +40,7 @@ RUN apt update && apt install cmake gcc g++ ninja-build vim openssh-server ca-ce
 COPY sshd_config.txt /etc/ssh/sshd_config
 ```
 
-在终端中执行命令：
+确保 Dockerk Desktop 正在运行，在终端中执行命令：
 
 ```bash
 docker buildx build -t netlab2023:v1 -f .\Dockerfile . --platform linux/amd64
