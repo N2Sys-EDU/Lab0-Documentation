@@ -130,7 +130,7 @@ services:
 ``` -->
 
 接下来我们使用上一步拉取的镜像启动一个容器。
-我们在下发文件中提供了以下 `docker-compose.yml` 文件用于启动容器：
+请先在我们的机器上新建一个名为 `docker-compose.yml` 的文件，并将下面的内容复制到该 `docker-compose.yml` 文件内。这个文件用于启动容器：
 
 ```yaml
 services:
