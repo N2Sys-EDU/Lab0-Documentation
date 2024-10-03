@@ -85,7 +85,7 @@ Docker Hub 中应该能看到如图的类似结果：
 
 现在你应该已经安装好了 Docker，接下来我们将从部署在校内的 [code.lcpu.dev](https://code.lcpu.dev) 上拉取镜像。
 
-首先，你需要用任意机器在浏览器上登录一次 [code.lcpu.dev](https://code.lcpu.dev) 。在登录时使用 “选择 UAAA 登录”→“通过北京大学统一身份认证登录” 即可。
+<!-- 首先，你需要用任意机器在浏览器上登录一次 [code.lcpu.dev](https://code.lcpu.dev) 。在登录时使用 “选择 UAAA 登录”→“通过北京大学统一身份认证登录” 即可。
 
 接下来，在安装了 Docker 的机器上，在终端中执行下面的命令登录到 [code.lcpu.dev](https://code.lcpu.dev) 。这行命令会提示你输入用户名和密码。用户名填写你自己的学号即可，密码请填写 `e3cb6eb96e79b5685ce9a7e85b21d428b8814f7b` 。
 
@@ -93,8 +93,8 @@ Docker Hub 中应该能看到如图的类似结果：
 docker login code.lcpu.dev
 ```
 
-登录成功之后，使用下面的命令拉取镜像。
-
+登录成功之后，使用下面的命令拉取镜像。 -->
+在校园网环境下，使用下面的命令拉取镜像：
 ```bash
 docker pull code.lcpu.dev/2100013211/ns3:3.38
 ```
